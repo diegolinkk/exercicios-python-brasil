@@ -27,14 +27,50 @@
 nome_atleta = input("Digite o nome do Atleta: ")
 
 if nome_atleta:
-    notas = []
-    for nota in range(5):
-        notas.append(float(input("Digite a nota de número: ")))
+    saltos = []
+    for salto in range(5):
+        saltos.append(float(input("Digite a nota de número: ")))
     
     print(f"Nome do Atleta: {nome_atleta}")
-    print(f"Primeiro salto: {notas[0]}")
-    print(f"Primeiro salto: {notas[1]}")
-    print(f"Primeiro salto: {notas[2]}")
-    print(f"Primeiro salto: {notas[3]}")
-    print(f"Primeiro salto: {notas[4]}")
+    print(f"Primeiro salto: {saltos[0]}m")
+    print(f"Primeiro salto: {saltos[1]}m")
+    print(f"Primeiro salto: {saltos[2]}m")
+    print(f"Primeiro salto: {saltos[3]}m")
+    print(f"Primeiro salto: {saltos[4]}m")
 
+    #encontrar o maior e o menor (sem auxílio de funções)
+
+    indice_melhor_salto = 0
+    indice_pior_salto = 0
+
+    contador = 0
+
+    for salto in saltos:
+        if salto > saltos[indice_melhor_salto]:
+            indice_melhor_salto = contador
+        
+        if salto < saltos [indice_pior_salto]:
+            indice_pior_salto = contador
+
+        contador +=1 
+
+
+    melhor_salto = saltos[indice_melhor_salto]
+    pior_salto = saltos[indice_pior_salto]
+
+    saltos.remove(melhor_salto)
+    saltos.remove(pior_salto)
+
+    print(f"Melhor salto: {melhor_salto}m")
+    print(f"Pior salto: {pior_salto}m")
+
+    #calcula média dos demais saltos
+
+    soma_saltos = 0
+    for salto in saltos:
+        soma_saltos += salto
+    
+    media_saltos = soma_saltos / len(saltos)
+
+    print(f"Média dos demais saltos: {media_saltos:.1f}m")
+    print(f"Resultado final: {media_saltos:.1f}m")
